@@ -30,6 +30,13 @@
   --shadow-paper: 0 26px 64px rgba(90, 45, 56, 0.14), 0 3px 10px rgba(90, 45, 56, 0.06);
   --shadow-wine: 0 12px 26px rgba(90, 45, 56, 0.28);
 
+  --line: rgba(139, 58, 74, 0.12);
+  --line-soft: rgba(139, 58, 74, 0.1);
+  --line-strong: rgba(139, 58, 74, 0.14);
+  --gold-line: rgba(166, 124, 82, 0.4);
+  --gold-line-strong: rgba(166, 124, 82, 0.8);
+  --gold-soft: rgba(166, 124, 82, 0.32);
+
   --text-base: 1.125rem;
   --text-letter: clamp(1.45rem, 3.6vw, 1.75rem);
   --text-lead: clamp(1.28rem, 3vw, 1.5rem);
@@ -248,11 +255,11 @@ button {
   height: 1px;
   flex: 1 1 auto;
   max-width: 9rem;
-  background: linear-gradient(to right, transparent, rgba(166, 124, 82, 0.55));
+  background: linear-gradient(to right, transparent, var(--gold-line));
 }
 
 .ornament-line:last-child {
-  background: linear-gradient(to left, transparent, rgba(166, 124, 82, 0.55));
+  background: linear-gradient(to left, transparent, var(--gold-line));
 }
 
 /* —— Buttons —— */
@@ -311,7 +318,7 @@ button {
 }
 
 .btn-ghost:hover {
-  border-color: rgba(166, 124, 82, 0.75);
+  border-color: var(--gold-line-strong);
   background: rgba(255, 255, 255, 0.7);
   color: var(--wine-deep);
 }
@@ -345,7 +352,7 @@ button {
   padding-top: max(0.7rem, env(safe-area-inset-top));
   padding-bottom: 0.7rem;
   background: rgba(255, 248, 246, 0.82);
-  box-shadow: 0 1px 0 rgba(139, 58, 74, 0.1), 0 10px 30px rgba(90, 45, 56, 0.07);
+  box-shadow: 0 1px 0 var(--line-soft), 0 10px 30px rgba(90, 45, 56, 0.07);
 }
 
 .logo {
@@ -408,6 +415,14 @@ button {
   border: none;
   cursor: pointer;
   font-family: inherit;
+}
+
+.nav-plain {
+  opacity: 0.75;
+}
+
+.nav-plain:hover {
+  opacity: 1;
 }
 
 /* —— Hero —— */
@@ -475,7 +490,7 @@ button {
 .sprig {
   position: absolute;
   width: min(34vw, 20rem);
-  color: rgba(166, 124, 82, 0.32);
+  color: var(--gold-soft);
   pointer-events: none;
   transition: transform 0.9s var(--ease-out);
 }
@@ -517,7 +532,7 @@ button {
   font-weight: 400;
   line-height: 1.25;
   color: var(--rose-ink);
-  text-shadow: 0 2px 14px rgba(139, 58, 74, 0.14);
+  text-shadow: 0 2px 14px var(--line-strong);
 }
 
 .hero-content > .ornament {
@@ -723,7 +738,7 @@ html.js .reveal.is-visible {
   background:
     radial-gradient(120% 70% at 50% 0%, rgba(255, 255, 255, 0.9), transparent 60%),
     linear-gradient(165deg, #fffaf8 0%, #f8e9e6 100%);
-  border: 1px solid rgba(139, 58, 74, 0.12);
+  border: 1px solid var(--line);
   border-radius: 2px;
   box-shadow: var(--shadow-lg);
   transition: transform 0.7s var(--ease-out), box-shadow 0.7s var(--ease-out);
@@ -881,7 +896,7 @@ html.js .reveal.is-visible {
 .select-wrap select:hover,
 .select-wrap select:focus {
   outline: none;
-  border-color: rgba(166, 124, 82, 0.85);
+  border-color: var(--gold-line-strong);
   background: rgba(255, 255, 255, 0.95);
   box-shadow: 0 0 0 4px rgba(166, 124, 82, 0.12);
 }
@@ -914,7 +929,7 @@ html.js .reveal.is-visible {
   background:
     radial-gradient(120% 55% at 50% 0%, rgba(255, 255, 255, 0.92), transparent 62%),
     linear-gradient(165deg, var(--paper) 0%, var(--paper-2) 58%, var(--paper-3) 100%);
-  border: 1px solid rgba(139, 58, 74, 0.1);
+  border: 1px solid var(--line-soft);
   border-radius: 2px;
   box-shadow: var(--shadow-paper);
   transform: rotate(-0.25deg);
@@ -924,7 +939,7 @@ html.js .reveal.is-visible {
   content: "";
   position: absolute;
   inset: 10px;
-  border: 1px solid rgba(166, 124, 82, 0.26);
+  border: 1px solid var(--gold-line);
   pointer-events: none;
 }
 
@@ -942,7 +957,7 @@ html.js .reveal.is-visible {
   position: absolute;
   width: 1.5rem;
   height: 1.5rem;
-  border: 1px solid rgba(166, 124, 82, 0.5);
+  border: 1px solid var(--gold-line);
   pointer-events: none;
 }
 
@@ -1007,7 +1022,7 @@ html.js .reveal.is-visible {
   text-align: right;
   margin-bottom: 1.5rem;
   padding-bottom: 1.15rem;
-  border-bottom: 1px solid rgba(139, 58, 74, 0.12);
+  border-bottom: 1px solid var(--line);
 }
 
 .letter-date {
@@ -1109,13 +1124,13 @@ html.js .reveal.is-visible {
   width: min(100%, 16rem);
   height: 1.5rem;
   margin-top: 0.35rem;
-  color: rgba(166, 124, 82, 0.65);
+  color: var(--gold-line);
 }
 
 .letter-foot {
   margin-top: 2rem;
   padding-top: 1.35rem;
-  border-top: 1px solid rgba(139, 58, 74, 0.12);
+  border-top: 1px solid var(--line);
   text-align: center;
 }
 
@@ -1212,8 +1227,8 @@ html.js .reveal.is-visible {
   gap: 0.85rem;
   align-items: baseline;
   padding: 1rem 1.15rem;
-  border: 1px solid rgba(139, 58, 74, 0.1);
-  border-left: 2px solid rgba(166, 124, 82, 0.55);
+  border: 1px solid var(--line-soft);
+  border-left: 2px solid var(--gold-line);
   border-radius: 2px;
   background: rgba(255, 255, 255, 0.4);
   backdrop-filter: blur(3px);
@@ -1259,7 +1274,7 @@ html.js .reveal.is-visible {
   padding: 2.5rem 1.35rem 2.75rem;
   padding-bottom: max(2.75rem, env(safe-area-inset-bottom));
   text-align: center;
-  border-top: 1px solid rgba(139, 58, 74, 0.1);
+  border-top: 1px solid var(--line-soft);
   background: linear-gradient(to bottom, transparent, rgba(255, 250, 249, 0.6));
 }
 
@@ -1273,12 +1288,29 @@ html.js .reveal.is-visible {
   font-size: 2.1rem;
 }
 
-.site-footer p:last-child {
+.footer-note {
   margin: 0;
   font-family: var(--font-display);
   font-size: 1.2rem;
   font-style: italic;
   color: var(--wine-soft);
+}
+
+.footer-swap {
+  margin: 1.1rem 0 0;
+  font-size: 0.92rem;
+}
+
+.footer-swap a {
+  color: var(--gold);
+  border-bottom: 1px solid var(--gold-line);
+  padding-bottom: 1px;
+  transition: color 0.25s ease, border-color 0.25s ease;
+}
+
+.footer-swap a:hover {
+  color: var(--rose-ink);
+  border-color: var(--rose-ink);
 }
 
 /* —— Ảnh xuất —— */
@@ -1295,14 +1327,14 @@ html.js .reveal.is-visible {
   font-family: "Cormorant Garamond", Georgia, serif;
   box-sizing: border-box;
   pointer-events: none;
-  border: 1px solid rgba(139, 58, 74, 0.12);
+  border: 1px solid var(--line);
 }
 
 .letter-export::before {
   content: "";
   position: absolute;
   inset: 14px;
-  border: 1px solid rgba(166, 124, 82, 0.35);
+  border: 1px solid var(--gold-line);
 }
 
 .letter-export .export-date {
@@ -1365,13 +1397,13 @@ html.js .reveal.is-visible {
   width: 220px;
   height: 18px;
   margin: 4px 0 0;
-  color: rgba(166, 124, 82, 0.7);
+  color: var(--gold-line);
 }
 
 .letter-export .export-footer {
   margin: 40px 0 0;
   padding-top: 18px;
-  border-top: 1px solid rgba(139, 58, 74, 0.15);
+  border-top: 1px solid var(--line-strong);
   font-size: 18px;
   font-style: italic;
   color: #a67c52;
@@ -1421,6 +1453,10 @@ html.js .reveal.is-visible {
   }
 
   .nav-dot {
+    display: none;
+  }
+
+  .nav-wide {
     display: none;
   }
 

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>20 · 10 — Gửi bạn thân</title>
+  <meta name="description" content="Lá thư 20/10 dành cho bạn bè, bạn thân — những lời yêu thương dành cho người con gái đặc biệt." />
+  <meta name="theme-color" content="#fdeee4" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Great+Vibes&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="ban-be.css" />
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body class="theme-friends locked">
+  <div class="ambient" aria-hidden="true">
+    <span class="orb orb-1"></span>
+    <span class="orb orb-2"></span>
+    <span class="orb orb-3"></span>
+  </div>
+  <div class="heart-field" aria-hidden="true" id="heartField"></div>
+  <div class="paper-grain" aria-hidden="true"></div>
+  <div class="vignette" aria-hidden="true"></div>
+
+  <div class="greet-modal" id="greetModal" role="dialog" aria-modal="true" aria-labelledby="greetTitle">
+    <div class="greet-card">
+      <span class="greet-tape" aria-hidden="true"></span>
+      <div class="greet-sticker" aria-hidden="true">
+        <svg viewBox="0 0 64 64" fill="none">
+          <path d="M32 54C14 42 6 33 6 24.5 6 16.8 12 11 19.5 11c4.6 0 8.8 2.2 11.5 5.8C33.7 13.2 37.9 11 42.5 11 50 11 56 16.8 56 24.5 56 33 48 42 32 54Z" fill="currentColor" />
+        </svg>
+      </div>
+      <p class="greet-kicker">Ngày Phụ nữ Việt Nam</p>
+      <h2 class="greet-title" id="greetTitle">Lá thư này gửi đến bạn nào?</h2>
+      <p class="greet-lead">Điền tên người bạn muốn gửi — mọi dòng chữ sẽ được viết riêng cho bạn ấy.</p>
+
+      <label class="field-label" for="friendName">Tên người nhận</label>
+      <div class="name-input-wrap">
+        <input type="text" id="friendName" name="friend-name" maxlength="24" autocomplete="off" placeholder="Ví dụ: Hà, Mai, Ngọc…" />
+        <span class="name-input-heart" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none">
+            <path d="M16 28C6 20 2 15 2 10.5 2 6.4 5.2 3 9.2 3c2.3 0 4.4 1.1 5.8 2.9C16.4 4.1 18.5 3 20.8 3 24.8 3 28 6.4 28 10.5 28 15 24 20 16 28Z" fill="currentColor" />
+          </svg>
+        </span>
+      </div>
+
+      <span class="field-label" id="relLabel">Mối quan hệ</span>
+      <div class="chips" id="relChips" role="radiogroup" aria-labelledby="relLabel">
+        <button type="button" class="chip is-active" data-rel="hanh" role="radio" aria-checked="true">Bạn thân từ nhỏ</button>
+        <button type="button" class="chip" data-rel="cap3" role="radio" aria-checked="false">Bạn cấp ba</button>
+        <button type="button" class="chip" data-rel="dongnghiep" role="radio" aria-checked="false">Bạn đồng nghiệp</button>
+        <button type="button" class="chip" data-rel="hangxom" role="radio" aria-checked="false">Bạn hàng xóm</button>
+        <button type="button" class="chip" data-rel="moi" role="radio" aria-checked="false">Người bạn mới</button>
+      </div>
+
+      <button type="button" class="btn btn-primary" id="startBtn" disabled>Gửi lá thư</button>
+      <p class="greet-hint">Bạn có thể đổi tên hoặc quan hệ bất cứ lúc nào.</p>
+    </div>
+  </div>
+
+  <header class="site-header" id="siteHeader">
+    <a class="logo" href="#top">
+      <span class="logo-mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" fill="none">
+          <path d="M16 28C6 20 2 15 2 10.5 2 6.4 5.2 3 9.2 3c2.3 0 4.4 1.1 5.8 2.9C16.4 4.1 18.5 3 20.8 3 24.8 3 28 6.4 28 10.5 28 15 24 20 16 28Z" fill="currentColor" opacity=".25" />
+          <path d="M16 28C6 20 2 15 2 10.5 2 6.4 5.2 3 9.2 3c2.3 0 4.4 1.1 5.8 2.9C16.4 4.1 18.5 3 20.8 3 24.8 3 28 6.4 28 10.5 28 15 24 20 16 28Z" stroke="currentColor" stroke-width="1.2" />
+        </svg>
+      </span>
+      <span class="logo-text">Gửi bạn thân</span>
+    </a>
+    <nav class="nav">
+      <a class="nav-wide" href="#postcard">Thiệp thư</a>
+      <span class="nav-dot nav-wide" aria-hidden="true"></span>
+      <a class="nav-plain" href="index.html">Gửi gia đình</a>
+      <span class="nav-dot" aria-hidden="true"></span>
+      <button type="button" class="nav-btn" id="changeFriendBtn">Đổi người nhận</button>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-bg" aria-hidden="true">
+        <div class="bloom bloom-1"></div>
+        <div class="bloom bloom-2"></div>
+      </div>
+
+      <div class="hero-content">
+        <p class="script-line reveal" style="--d: 0s" id="heroScript">Gửi đến bạn thân của tôi…</p>
+        <div class="ornament reveal" style="--d: 0.08s" aria-hidden="true">
+          <span class="ornament-line"></span>
+          <svg viewBox="0 0 44 24" fill="none">
+            <path d="M2 12h14" stroke="currentColor" stroke-width="1" stroke-linecap="round" />
+            <path d="M42 12H28" stroke="currentColor" stroke-width="1" stroke-linecap="round" />
+            <path d="M22 3c3.6 4.4 3.6 13.6 0 18-3.6-4.4-3.6-13.6 0-18Z" fill="currentColor" opacity=".7" />
+            <circle cx="22" cy="12" r="1.6" fill="currentColor" />
+          </svg>
+          <span class="ornament-line"></span>
+        </div>
+        <h1 class="hero-title reveal" style="--d: 0.15s">
+          <span class="date-mark">20</span>
+          <span class="date-dot">·</span>
+          <span class="date-mark">10</span>
+        </h1>
+        <p class="hero-sub reveal" style="--d: 0.24s">Ngày Phụ nữ Việt Nam</p>
+        <p class="hero-lead reveal" style="--d: 0.32s" id="heroLead">
+          Có những người không cùng họ tên, không cùng mái nhà — nhưng lại là người mình luôn nghĩ đến đầu tiên.
+        </p>
+        <div class="hero-actions reveal" style="--d: 0.42s">
+          <a class="btn btn-primary" href="#postcard">Mở thiệp thư</a>
+          <a class="btn btn-ghost" href="#notes">Lời thêm</a>
+        </div>
+      </div>
+
+      <svg class="wave-divider" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0 40c180 40 360 60 540 40s360-60 540-40 240 40 360 40v90H0Z" fill="currentColor" />
+      </svg>
+    </section>
+
+    <section class="postcard-section" id="postcard">
+      <div class="postcard-wrap reveal">
+        <article class="postcard" aria-label="Thiệp thư gửi bạn bè">
+          <span class="postcard-tape" aria-hidden="true"></span>
+
+          <figure class="polaroid">
+            <div class="polaroid-photo">
+              <svg viewBox="0 0 200 150" aria-hidden="true">
+                <defs>
+                  <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="#ffe6d6" />
+                    <stop offset="1" stop-color="#ffc7ad" />
+                  </linearGradient>
+                </defs>
+                <rect width="200" height="150" fill="url(#sky)" />
+                <circle cx="154" cy="32" r="15" fill="#fff6ec" opacity=".95" />
+                <path d="M0 116c40-22 70 10 110-6s60-16 90-2v42H0Z" fill="#f2a68d" opacity=".75" />
+                <path d="M0 132c50-16 90 8 140-6 30-9 45 2 60-2v26H0Z" fill="#e08876" opacity=".6" />
+                <path d="M100 80c-13-10-28-17-28-30 0-8 6-13 13-13 5 0 9 2 12 5 3-3 7-5 12-5 7 0 13 5 13 13 0 13-15 20-28 30Z" fill="#bd4f66" />
+                <circle cx="46" cy="44" r="3" fill="#fff6ec" opacity=".9" />
+                <circle cx="60" cy="28" r="2" fill="#fff6ec" opacity=".75" />
+                <circle cx="34" cy="26" r="2" fill="#fff6ec" opacity=".6" />
+                <path d="M160 74c-4-3-9-5-9-9 0-2 2-4 4-4 2 0 3 1 4 2 1-1 2-2 4-2 2 0 4 2 4 4 0 4-5 6-9 9Z" fill="#fff6ec" opacity=".85" />
+              </svg>
+            </div>
+            <figcaption id="photoCaption">Cảm ơn bạn, vì đã ở đây</figcaption>
+          </figure>
+
+          <div class="postcard-inner">
+            <p class="postcard-date">Ngày 20 tháng 10</p>
+            <h2 class="postcard-greeting" id="friendGreeting">Gửi bạn thân của tôi,</h2>
+            <p class="postcard-text" id="wishText">
+              Có những người không cần gọi mới biết người ta vẫn nhớ, và mỗi lần gặp lại là lại như chưa từng xa cách.
+            </p>
+            <p class="postcard-closing" id="friendClosing">Mãi thương bạn,</p>
+            <p class="postcard-sign" id="friendSign">Mãi thương bạn,</p>
+          </div>
+
+          <footer class="postcard-foot">
+            <p class="postcard-page" id="wishCaption">Dòng thư · 1</p>
+            <div class="postcard-actions">
+              <button type="button" class="btn btn-primary" id="randomWishBtn">Viết dòng khác</button>
+              <button type="button" class="btn btn-ghost" id="copyWishBtn">Sao chép thư</button>
+              <button type="button" class="btn btn-ghost" id="imageWishBtn">Tải ảnh</button>
+            </div>
+            <p class="copy-toast" id="copyToast" hidden>Đã sao chép lá thư</p>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <section class="notes-section" id="notes">
+      <div class="notes-inner reveal">
+        <p class="script-line">P.S.</p>
+        <div class="ornament" aria-hidden="true">
+          <span class="ornament-line"></span>
+          <svg viewBox="0 0 44 24" fill="none">
+            <path d="M2 12h14" stroke="currentColor" stroke-width="1" stroke-linecap="round" />
+            <path d="M42 12H28" stroke="currentColor" stroke-width="1" stroke-linecap="round" />
+            <path d="M22 3c3.6 4.4 3.6 13.6 0 18-3.6-4.4-3.6-13.6 0-18Z" fill="currentColor" opacity=".7" />
+            <circle cx="22" cy="12" r="1.6" fill="currentColor" />
+          </svg>
+          <span class="ornament-line"></span>
+        </div>
+        <h2 class="notes-title">Ba điều mình muốn nói với bạn</h2>
+        <p class="notes-text" id="psText">
+          Mình nhớ có lần mưa to, mình đứng dưới mái hiên nhà bạn chờ, và bạn đưa thêm một chiếc áo khoác.
+        </p>
+        <ul class="note-list" id="psNotes">
+          <li>
+            <span class="note-mark" aria-hidden="true">
+              <svg viewBox="0 0 32 32" fill="none">
+                <path d="M16 28C6 20 2 15 2 10.5 2 6.4 5.2 3 9.2 3c2.3 0 4.4 1.1 5.8 2.9C16.4 4.1 18.5 3 20.8 3 24.8 3 28 6.4 28 10.5 28 15 24 20 16 28Z" fill="currentColor" />
+              </svg>
+            </span>
+            <span>Cảm ơn vì đã không bao giờ kể lể chuyện xấu của mình.</span>
+          </li>
+          <li>
+            <span class="note-mark" aria-hidden="true">
+              <svg viewBox="0 0 32 32" fill="none">
+                <path d="M16 28C6 20 2 15 2 10.5 2 6.4 5.2 3 9.2 3c2.3 0 4.4 1.1 5.8 2.9C16.4 4.1 18.5 3 20.8 3 24.8 3 28 6.4 28 10.5 28 15 24 20 16 28Z" fill="currentColor" />
+              </svg>
+            </span>
+            <span>Cảm ơn vì luôn là người gọi điện đầu tiên khi mình vui.</span>
+          </li>
+          <li>
+            <span class="note-mark" aria-hidden="true">
+              <svg viewBox="0 0 32 32" fill="none">
+                <path d="M16 28C6 20 2 15 2 10.5 2 6.4 5.2 3 9.2 3c2.3 0 4.4 1.1 5.8 2.9C16.4 4.1 18.5 3 20.8 3 24.8 3 28 6.4 28 10.5 28 15 24 20 16 28Z" fill="currentColor" />
+              </svg>
+            </span>
+            <span>Cảm ơn vì đã làm bạn thân của mình suốt bao năm nay.</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="ornament" aria-hidden="true">
+      <span class="ornament-line"></span>
+      <svg viewBox="0 0 44 24" fill="none">
+        <path d="M2 12h14" stroke="currentColor" stroke-width="1" stroke-linecap="round" />
+        <path d="M42 12H28" stroke="currentColor" stroke-width="1" stroke-linecap="round" />
+        <path d="M22 3c3.6 4.4 3.6 13.6 0 18-3.6-4.4-3.6-13.6 0-18Z" fill="currentColor" opacity=".7" />
+        <circle cx="22" cy="12" r="1.6" fill="currentColor" />
+      </svg>
+      <span class="ornament-line"></span>
+    </div>
+    <p class="script-line footer-script">Mãi thương bạn</p>
+    <p class="footer-note">Chúc mừng Ngày Phụ nữ Việt Nam — 20 · 10</p>
+    <p class="footer-swap"><a href="index.html">→ Gửi lá thư cho gia đình</a></p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="ban-be.js"></script>
+</body>
+</html>
