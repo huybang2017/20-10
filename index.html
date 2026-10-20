@@ -5,21 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>20 · 10 — Lá thư gửi người phụ nữ tôi yêu</title>
   <meta name="description" content="Một lá thư dịu dàng nhân Ngày Phụ nữ Việt Nam 20/10." />
+  <meta name="theme-color" content="#f8e6e8" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;1,300&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Great+Vibes&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <script>document.documentElement.classList.add("js");</script>
 </head>
 <body class="locked">
+  <div class="ambient" aria-hidden="true">
+    <span class="orb orb-1"></span>
+    <span class="orb orb-2"></span>
+    <span class="orb orb-3"></span>
+  </div>
   <div class="petal-field" aria-hidden="true" id="petalField"></div>
   <div class="paper-grain" aria-hidden="true"></div>
+  <div class="vignette" aria-hidden="true"></div>
 
   <div class="welcome" id="welcome" role="dialog" aria-modal="true" aria-labelledby="welcomeTitle">
-    <div class="envelope">
+    <div class="envelope" id="envelope">
       <div class="envelope-flap" aria-hidden="true"></div>
       <div class="envelope-body">
-        <div class="wax-seal" aria-hidden="true">
-          <span>20</span>
+        <div class="wax-seal" id="waxSeal" aria-hidden="true">
+          <span class="wax-seal-inner">20</span>
         </div>
         <p class="envelope-stamp">Ngày Phụ nữ Việt Nam</p>
         <h2 class="welcome-title" id="welcomeTitle">Lá thư này gửi cho ai?</h2>
@@ -50,10 +58,19 @@
     </div>
   </div>
 
-  <header class="site-header">
-    <a class="logo" href="#top">Một lá thư</a>
+  <header class="site-header" id="siteHeader">
+    <a class="logo" href="#top">
+      <span class="logo-mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" fill="none">
+          <path d="M16 28c-5-3.6-9.5-7.4-9.5-12A5.5 5.5 0 0 1 16 11a5.5 5.5 0 0 1 9.5 5c0 4.6-4.5 8.4-9.5 12Z" fill="currentColor" opacity=".22" />
+          <path d="M16 28c-5-3.6-9.5-7.4-9.5-12A5.5 5.5 0 0 1 16 11a5.5 5.5 0 0 1 9.5 5c0 4.6-4.5 8.4-9.5 12Z" stroke="currentColor" stroke-width="1.2" />
+        </svg>
+      </span>
+      <span class="logo-text">Một lá thư</span>
+    </a>
     <nav class="nav">
       <a href="#la-thu">Đọc thư</a>
+      <span class="nav-dot" aria-hidden="true"></span>
       <button type="button" class="nav-btn" id="changeMemberBtn">Đổi người nhận</button>
     </nav>
   </header>
@@ -63,62 +80,145 @@
       <div class="hero-bg" aria-hidden="true">
         <div class="bloom bloom-1"></div>
         <div class="bloom bloom-2"></div>
+        <div class="bloom bloom-3"></div>
       </div>
+
+      <svg class="sprig sprig-left" viewBox="0 0 220 150" fill="none" aria-hidden="true">
+        <path d="M6 140C62 126 120 86 212 28" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" />
+        <g fill="currentColor">
+          <ellipse cx="32" cy="130" rx="17" ry="6.5" transform="rotate(-34 32 130)" />
+          <ellipse cx="62" cy="118" rx="16" ry="6" transform="rotate(-32 62 118)" />
+          <ellipse cx="96" cy="100" rx="16" ry="6" transform="rotate(-30 96 100)" />
+          <ellipse cx="130" cy="80" rx="15" ry="5.6" transform="rotate(-28 130 80)" />
+          <ellipse cx="162" cy="60" rx="14" ry="5.2" transform="rotate(-26 162 60)" />
+          <ellipse cx="44" cy="122" rx="14" ry="5.4" transform="rotate(30 44 122)" />
+          <ellipse cx="78" cy="106" rx="14" ry="5.4" transform="rotate(29 78 106)" />
+          <ellipse cx="112" cy="88" rx="13" ry="5" transform="rotate(28 112 88)" />
+          <ellipse cx="146" cy="68" rx="12" ry="4.8" transform="rotate(26 146 68)" />
+        </g>
+      </svg>
+      <svg class="sprig sprig-right" viewBox="0 0 220 150" fill="none" aria-hidden="true">
+        <path d="M6 140C62 126 120 86 212 28" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" />
+        <g fill="currentColor">
+          <ellipse cx="32" cy="130" rx="17" ry="6.5" transform="rotate(-34 32 130)" />
+          <ellipse cx="62" cy="118" rx="16" ry="6" transform="rotate(-32 62 118)" />
+          <ellipse cx="96" cy="100" rx="16" ry="6" transform="rotate(-30 96 100)" />
+          <ellipse cx="130" cy="80" rx="15" ry="5.6" transform="rotate(-28 130 80)" />
+          <ellipse cx="162" cy="60" rx="14" ry="5.2" transform="rotate(-26 162 60)" />
+          <ellipse cx="44" cy="122" rx="14" ry="5.4" transform="rotate(30 44 122)" />
+          <ellipse cx="78" cy="106" rx="14" ry="5.4" transform="rotate(29 78 106)" />
+          <ellipse cx="112" cy="88" rx="13" ry="5" transform="rotate(28 112 88)" />
+          <ellipse cx="146" cy="68" rx="12" ry="4.8" transform="rotate(26 146 68)" />
+        </g>
+      </svg>
 
       <div class="hero-content">
         <p class="script-line reveal" style="--d: 0s" id="heroScript">Gửi đến người tôi yêu…</p>
+        <div class="ornament reveal" style="--d: 0.08s" aria-hidden="true">
+          <span class="ornament-line"></span>
+          <svg viewBox="0 0 44 24" fill="none">
+            <path d="M2 12h14" stroke="currentColor" stroke-width="1" stroke-linecap="round" />
+            <path d="M42 12H28" stroke="currentColor" stroke-width="1" stroke-linecap="round" />
+            <path d="M22 3c3.6 4.4 3.6 13.6 0 18-3.6-4.4-3.6-13.6 0-18Z" fill="currentColor" opacity=".7" />
+            <circle cx="22" cy="12" r="1.6" fill="currentColor" />
+          </svg>
+          <span class="ornament-line"></span>
+        </div>
         <h1 class="hero-title reveal" style="--d: 0.15s">
           <span class="date-mark">20</span>
           <span class="date-dot">·</span>
           <span class="date-mark">10</span>
         </h1>
-        <p class="hero-lead reveal" style="--d: 0.3s" id="heroLead">
+        <p class="hero-sub reveal" style="--d: 0.24s">Ngày Phụ nữ Việt Nam</p>
+        <p class="hero-lead reveal" style="--d: 0.32s" id="heroLead">
           Có những lời yêu thương cứ để trong lòng mãi — hôm nay, xin được viết ra thành một lá thư.
         </p>
         <div class="hero-actions reveal" style="--d: 0.42s">
           <a class="btn btn-primary" href="#la-thu">Đọc lá thư</a>
+          <a class="btn btn-ghost" href="#ps">Lời thêm</a>
         </div>
       </div>
+
+      <a class="scroll-cue reveal" style="--d: 0.6s" href="#la-thu" aria-label="Cuộn xuống để đọc lá thư">
+        <span class="scroll-cue-text">Cuộn xuống</span>
+        <span class="scroll-cue-line" aria-hidden="true"></span>
+      </a>
     </section>
 
     <section class="letter-section" id="la-thu">
-      <article class="letter" aria-label="Lá thư chúc mừng">
-        <header class="letter-head">
-          <p class="letter-date">Ngày 20 tháng 10</p>
-          <p class="letter-to" id="letterTo">Gửi người tôi yêu,</p>
-        </header>
+      <div class="letter-wrap reveal">
+        <article class="letter" aria-label="Lá thư chúc mừng">
+          <span class="letter-corner corner-tl" aria-hidden="true"></span>
+          <span class="letter-corner corner-tr" aria-hidden="true"></span>
+          <span class="letter-corner corner-bl" aria-hidden="true"></span>
+          <span class="letter-corner corner-br" aria-hidden="true"></span>
 
-        <div class="letter-meta">
-          <label class="field-label field-label-letter" for="memberSelectInline">Đổi người nhận</label>
-          <div class="select-wrap select-wrap-inline">
-            <select id="memberSelectInline" name="member-inline" aria-label="Đổi người nhận lá thư"></select>
+          <svg class="letter-stamp" viewBox="0 0 120 120" aria-hidden="true">
+            <defs>
+              <path id="stampArc" d="M60 60m-40 0a40 40 0 1 1 80 0a40 40 0 1 1-80 0" />
+            </defs>
+            <circle cx="60" cy="60" r="50" fill="none" stroke="currentColor" stroke-width="1.6" />
+            <circle cx="60" cy="60" r="43" fill="none" stroke="currentColor" stroke-width="0.9" stroke-dasharray="2.5 4" />
+            <text class="stamp-arc"><textPath href="#stampArc" startOffset="12%">NGÀY PHỤ NỮ VIỆT NAM · 20 · 10 ·</textPath></text>
+            <text class="stamp-num" x="60" y="63" text-anchor="middle">20</text>
+            <text class="stamp-num stamp-num-sm" x="60" y="82" text-anchor="middle">10</text>
+          </svg>
+
+          <header class="letter-head">
+            <p class="letter-date">Ngày 20 tháng 10</p>
+            <p class="letter-to" id="letterTo">Gửi người tôi yêu,</p>
+          </header>
+
+          <div class="letter-meta">
+            <label class="field-label field-label-letter" for="memberSelectInline">Đổi người nhận</label>
+            <div class="select-wrap select-wrap-inline">
+              <select id="memberSelectInline" name="member-inline" aria-label="Đổi người nhận lá thư"></select>
+            </div>
           </div>
-        </div>
 
-        <div class="letter-body" aria-live="polite">
-          <p class="letter-salute" id="letterSalute">Thưa mẹ,</p>
-          <blockquote class="letter-text" id="wishText">
-            Con muốn nói với mẹ rằng mẹ luôn là ánh sáng dịu dàng nhất trong ngôi nhà này.
-          </blockquote>
-          <p class="letter-closing" id="letterClosing">Thương mẹ rất nhiều,</p>
-          <p class="letter-sign-script" id="letterSign">Với tất cả yêu thương</p>
-        </div>
-
-        <footer class="letter-foot">
-          <p class="letter-page" id="wishCaption">Trang thư · 1</p>
-          <div class="letter-actions">
-            <button type="button" class="btn btn-primary" id="randomWishBtn">Viết dòng khác</button>
-            <button type="button" class="btn btn-ghost" id="copyWishBtn">Sao chép thư</button>
-            <button type="button" class="btn btn-ghost" id="imageWishBtn">Tải ảnh</button>
+          <div class="letter-body" aria-live="polite">
+            <p class="letter-salute" id="letterSalute">Thưa mẹ,</p>
+            <blockquote class="letter-text" id="wishText">
+              Con muốn nói với mẹ rằng mẹ luôn là ánh sáng dịu dàng nhất trong ngôi nhà này.
+            </blockquote>
+            <p class="letter-closing" id="letterClosing">Thương mẹ rất nhiều,</p>
+            <p class="letter-sign-script" id="letterSign">Với tất cả yêu thương</p>
+            <svg class="sign-flourish" viewBox="0 0 260 24" fill="none" aria-hidden="true">
+              <path d="M2 16C40 16 62 8 100 8c26 0 44 6 62 6 26 0 44-6 96-6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
+              <path d="M96 8c4-3 8-4 12-2-3 3-7 4-12 2Zm66 6c4 3 8 4 12 2-3-3-7-4-12-2Z" fill="currentColor" opacity=".5" />
+            </svg>
           </div>
-          <p class="copy-toast" id="copyToast" hidden>Đã sao chép lá thư</p>
-        </footer>
-      </article>
+
+          <footer class="letter-foot">
+            <p class="letter-page" id="wishCaption">Trang thư · 1</p>
+            <div class="letter-actions">
+              <button type="button" class="btn btn-primary" id="randomWishBtn">Viết dòng khác</button>
+              <button type="button" class="btn btn-ghost" id="copyWishBtn">Sao chép thư</button>
+              <button type="button" class="btn btn-ghost" id="imageWishBtn">Tải ảnh</button>
+            </div>
+            <p class="copy-toast" id="copyToast" hidden>Đã sao chép lá thư</p>
+          </footer>
+
+          <div class="wax-seal wax-seal-sm" aria-hidden="true">
+            <span class="wax-seal-inner">20</span>
+          </div>
+        </article>
+      </div>
     </section>
 
     <section class="ps-section" id="ps">
-      <div class="ps-inner">
+      <div class="ps-inner reveal">
         <p class="script-line">P.S.</p>
+        <div class="ornament" aria-hidden="true">
+          <span class="ornament-line"></span>
+          <svg viewBox="0 0 44 24" fill="none">
+            <path d="M2 12h14" stroke="currentColor" stroke-width="1" stroke-linecap="round" />
+            <path d="M42 12H28" stroke="currentColor" stroke-width="1" stroke-linecap="round" />
+            <path d="M22 3c3.6 4.4 3.6 13.6 0 18-3.6-4.4-3.6-13.6 0-18Z" fill="currentColor" opacity=".7" />
+            <circle cx="22" cy="12" r="1.6" fill="currentColor" />
+          </svg>
+          <span class="ornament-line"></span>
+        </div>
         <h2 class="ps-title">Những điều con vẫn muốn nói thêm…</h2>
         <p class="ps-text" id="psText">
           Cảm ơn vì những bữa cơm ấm, vì những lần chờ cửa, vì nụ cười khiến mọi mệt mỏi tan biến.
@@ -143,6 +243,16 @@
   </main>
 
   <footer class="site-footer">
+    <div class="ornament" aria-hidden="true">
+      <span class="ornament-line"></span>
+      <svg viewBox="0 0 44 24" fill="none">
+        <path d="M2 12h14" stroke="currentColor" stroke-width="1" stroke-linecap="round" />
+        <path d="M42 12H28" stroke="currentColor" stroke-width="1" stroke-linecap="round" />
+        <path d="M22 3c3.6 4.4 3.6 13.6 0 18-3.6-4.4-3.6-13.6 0-18Z" fill="currentColor" opacity=".7" />
+        <circle cx="22" cy="12" r="1.6" fill="currentColor" />
+      </svg>
+      <span class="ornament-line"></span>
+    </div>
     <p class="script-line footer-script">Mãi yêu thương</p>
     <p>Chúc mừng Ngày Phụ nữ Việt Nam — 20 · 10</p>
   </footer>
