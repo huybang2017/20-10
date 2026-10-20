@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>20 · 10 — Lá thư gửi người phụ nữ tôi yêu</title>
+  <meta name="description" content="Một lá thư dịu dàng nhân Ngày Phụ nữ Việt Nam 20/10." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;1,300&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Great+Vibes&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="locked">
+  <div class="petal-field" aria-hidden="true" id="petalField"></div>
+  <div class="paper-grain" aria-hidden="true"></div>
+
+  <div class="welcome" id="welcome" role="dialog" aria-modal="true" aria-labelledby="welcomeTitle">
+    <div class="envelope">
+      <div class="envelope-flap" aria-hidden="true"></div>
+      <div class="envelope-body">
+        <div class="wax-seal" aria-hidden="true">
+          <span>20</span>
+        </div>
+        <p class="envelope-stamp">Ngày Phụ nữ Việt Nam</p>
+        <h2 class="welcome-title" id="welcomeTitle">Lá thư này gửi cho ai?</h2>
+        <p class="welcome-lead">Hãy chọn người phụ nữ trong gia đình — từng dòng chữ sẽ được viết riêng cho người ấy.</p>
+
+        <label class="field-label" for="memberSelect">Người nhận</label>
+        <div class="select-wrap">
+          <select id="memberSelect" name="member">
+            <option value="" disabled selected>Chọn người nhận lá thư…</option>
+            <option value="me">Mẹ</option>
+            <option value="ba-noi">Bà nội</option>
+            <option value="ba-ngoai">Bà ngoại</option>
+            <option value="co">Cô</option>
+            <option value="di">Dì</option>
+            <option value="thim">Thím</option>
+            <option value="mo">Mợ</option>
+            <option value="bac">Bác</option>
+            <option value="chi">Chị</option>
+            <option value="em">Em</option>
+            <option value="vo">Vợ</option>
+            <option value="con-gai">Con gái</option>
+          </select>
+        </div>
+
+        <button type="button" class="btn btn-primary" id="startBtn" disabled>Mở lá thư</button>
+      </div>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <a class="logo" href="#top">Một lá thư</a>
+    <nav class="nav">
+      <a href="#la-thu">Đọc thư</a>
+      <button type="button" class="nav-btn" id="changeMemberBtn">Đổi người nhận</button>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-bg" aria-hidden="true">
+        <div class="bloom bloom-1"></div>
+        <div class="bloom bloom-2"></div>
+      </div>
+
+      <div class="hero-content">
+        <p class="script-line reveal" style="--d: 0s" id="heroScript">Gửi đến người tôi yêu…</p>
+        <h1 class="hero-title reveal" style="--d: 0.15s">
+          <span class="date-mark">20</span>
+          <span class="date-dot">·</span>
+          <span class="date-mark">10</span>
+        </h1>
+        <p class="hero-lead reveal" style="--d: 0.3s" id="heroLead">
+          Có những lời yêu thương cứ để trong lòng mãi — hôm nay, xin được viết ra thành một lá thư.
+        </p>
+        <div class="hero-actions reveal" style="--d: 0.42s">
+          <a class="btn btn-primary" href="#la-thu">Đọc lá thư</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="letter-section" id="la-thu">
+      <article class="letter" aria-label="Lá thư chúc mừng">
+        <header class="letter-head">
+          <p class="letter-date">Ngày 20 tháng 10</p>
+          <p class="letter-to" id="letterTo">Gửi người tôi yêu,</p>
+        </header>
+
+        <div class="letter-meta">
+          <label class="field-label field-label-letter" for="memberSelectInline">Đổi người nhận</label>
+          <div class="select-wrap select-wrap-inline">
+            <select id="memberSelectInline" name="member-inline" aria-label="Đổi người nhận lá thư"></select>
+          </div>
+        </div>
+
+        <div class="letter-body" aria-live="polite">
+          <p class="letter-salute" id="letterSalute">Thưa mẹ,</p>
+          <blockquote class="letter-text" id="wishText">
+            Con muốn nói với mẹ rằng mẹ luôn là ánh sáng dịu dàng nhất trong ngôi nhà này.
+          </blockquote>
+          <p class="letter-closing" id="letterClosing">Thương mẹ rất nhiều,</p>
+          <p class="letter-sign-script" id="letterSign">Với tất cả yêu thương</p>
+        </div>
+
+        <footer class="letter-foot">
+          <p class="letter-page" id="wishCaption">Trang thư · 1</p>
+          <div class="letter-actions">
+            <button type="button" class="btn btn-primary" id="randomWishBtn">Viết dòng khác</button>
+            <button type="button" class="btn btn-ghost" id="copyWishBtn">Sao chép thư</button>
+            <button type="button" class="btn btn-ghost" id="imageWishBtn">Tải ảnh</button>
+          </div>
+          <p class="copy-toast" id="copyToast" hidden>Đã sao chép lá thư</p>
+        </footer>
+      </article>
+    </section>
+
+    <section class="ps-section" id="ps">
+      <div class="ps-inner">
+        <p class="script-line">P.S.</p>
+        <h2 class="ps-title">Những điều con vẫn muốn nói thêm…</h2>
+        <p class="ps-text" id="psText">
+          Cảm ơn vì những bữa cơm ấm, vì những lần chờ cửa, vì nụ cười khiến mọi mệt mỏi tan biến.
+          Nhân ngày 20/10, xin được giữ lấy bàn tay ấy thêm một lần nữa — và thì thầm: con yêu thương nhiều lắm.
+        </p>
+        <ul class="ps-notes">
+          <li>
+            <span class="ps-mark">i.</span>
+            <span>Cảm ơn vì đã giữ lửa cho cả nhà.</span>
+          </li>
+          <li>
+            <span class="ps-mark">ii.</span>
+            <span>Cảm ơn vì đã dịu dàng ngay cả khi rất mệt.</span>
+          </li>
+          <li>
+            <span class="ps-mark">iii.</span>
+            <span>Cảm ơn vì đã là nhà của con.</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p class="script-line footer-script">Mãi yêu thương</p>
+    <p>Chúc mừng Ngày Phụ nữ Việt Nam — 20 · 10</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
